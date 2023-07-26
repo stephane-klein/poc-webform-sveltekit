@@ -16,5 +16,6 @@ services:
     environment:
       SMTP_HOST: maildev
       SMTP_PORT: 1025
+      ORIGIN: http://localhost:3000
     ports:
-      - 5173:3000
+      - 3000:3000

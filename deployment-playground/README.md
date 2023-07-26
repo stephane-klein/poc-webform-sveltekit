@@ -2,4 +2,4 @@
 $ docker compose up -d
 ```
 
-Go to http://localhost:5173/
+Go to http://localhost:3000/
