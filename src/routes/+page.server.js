@@ -6,12 +6,16 @@ const transporter = nodemailer.createTransport({
     secure: false
 });
 
-const info = await transporter.sendMail({
-    from: "\"Fred Foo 👻\" <foo@example.com>",
-    to: "bar@example.com, baz@example.com",
-    subject: "Hello ✔",
-    text: "Hello world?",
-    html: "<b>Hello world?</b>"
-});
+export const actions = {
+    default: async() => {
+        const info = await transporter.sendMail({
+            from: "\"Fred Foo 👻\" <foo@example.com>",
+            to: "bar@example.com, baz@example.com",
+            subject: "Hello ✔",
+            text: "Hello world?",
+            html: "<b>Hello world?</b>"
+        });
 
-console.log("Message sent: %s", info.messageId);
+        console.log("Message sent: %s", info.messageId);
+    }
+};
