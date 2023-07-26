@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  maildev:
+    image: maildev/maildev:2.1.0
+    restart: always
+    ports:
+    - "1080:1080"
+    - "1025:1025"
+
+  web:
+    image: stephaneklein/poc-webform-sveltekit:develop
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      SMTP_HOST: maildev
+      SMTP_PORT: 1025
+    ports:
+      - 5173:3000

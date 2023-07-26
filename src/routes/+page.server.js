@@ -1,8 +1,8 @@
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-    host: "127.0.0.1",
-    port: 1025,
+    host: process.env.SMTP_HOST || "127.0.0.1",
+    port: process.env.SMTP_POST || 1025,
     secure: false
 });
 
